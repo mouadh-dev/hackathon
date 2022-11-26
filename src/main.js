@@ -5,6 +5,7 @@ import router from './router'
 import './assets/main.css'
 
 const app = createApp(App)
+const components = import.meta.globEager('./Components/**/*.vue')
 
 app.use(router)
 

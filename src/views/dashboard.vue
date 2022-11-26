@@ -79,16 +79,27 @@
   
         <main class="flex-1">
           <div class="py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <h1 class="text-2xl font-semibold text-gray-900">Dashboard</h1>
+            <div class="flex mb-3 justify-between">
+
+                <div class="max-w-7xl px-4 sm:px-6 md:px-8 justify-items-start">
+                    <h1 class="text-2xl text-gray-900 pb-3">Welcome again <span class="font-bold">Rebecca</span></h1>
+                </div>
+                <span class="relative z-0 inline-flex shadow-sm rounded-md mr-5">
+    <button type="button" class="relative inline-flex items-center px-4 py-2 rounded-l-md border border-gray-300 bg-red-50 text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 ">Recent</button>
+    <button type="button" class="-ml-px relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Most signed</button>
+    <button type="button" class="-ml-px relative inline-flex items-center px-4 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500">Trendy</button>
+  </span>
+
             </div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-              <!-- Replace with your content -->
-              <div class="py-4">
-                <div class="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-              </div>
-              <petitiondashboard style="display: none;"/>
-              <petitionDashboard/>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 ">
+             <homeDashboard text="Using new technologies to help Tunisia turn into a stable democracy." type="Debate"/>
+             <homeDashboard text="What would you suggest to help fight corruption in Tunisia and enhance transparency ? " type="Petition"/>
+             <homeDashboard text="Change the city's public transport ticketing system for easier trips and digitalize the process " type="Petition"/>
+             <homeDashboard text="Using new technologies to help Tunisia turn into a stable democracy." type="Debate"/>
+             <homeDashboard text="What would you suggest to help fight corruption in Tunisia and enhance transparency ? " type="Petition"/>
+        
+
               <!-- /End replace -->
             </div>
           </div>
@@ -117,6 +128,9 @@
   
   <script>
   import { ref } from 'vue'
+  import homeDashboard from '../components/homeDashboardComponent.vue'
+  import petition from '../components/petitiondashboard.vue'
+
   import {
     Dialog,
     DialogOverlay,
@@ -139,11 +153,10 @@
     XIcon,
   } from '@heroicons/vue/outline'
   import { SearchIcon } from '@heroicons/vue/solid'
-
   
   const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon, current: true },
-    { name: 'Petition', href: '/petitiondashboard', icon: UsersIcon, current: false },
+    { name: 'Petition', href: '#', icon: UsersIcon, current: false },
     { name: 'Access to information', href: '#', icon: FolderIcon, current: false },
     { name: 'Reporting', href: '#', icon: CalendarIcon, current: false },
   ]
@@ -167,7 +180,9 @@
     MenuAlt2Icon,
     SearchIcon,
     XIcon,
-    Petitiondashboard
+    homeDashboard,
+    petition
+    
 },
     setup() {
       const sidebarOpen = ref(false)
@@ -178,13 +193,11 @@
         sidebarOpen,
       }
     },
-    // methods :{
-    //     getPage(e){
-    //         if (e == Petition) {
-    //             this.navigation.href
-    //         }
-    //     }
-    // }
+    methods :{
+        getPage:(event)=>{
+            console.log(event)
+        }
+    }
   }
   </script>
   
