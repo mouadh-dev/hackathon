@@ -58,7 +58,7 @@
             <label for="role" class="block text-sm font-medium text-gray-700"> Role </label>
             <div class="mt-1">
                 
-                <select v-model="selected" name="role" id="role" @change="onChange($event)" class="text-black appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                <select v-model="selected" required name="role" id="role" @change="onChange($event)" class="text-black appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
       
         <option value="" disabled>-- Please select an option --</option>
         <option v-for="option in options" :value="option.text">{{option.text}}</option>
@@ -127,8 +127,19 @@ export default {
                 formData.append('cin', cin);
                 const headers = { 'Content-Type': 'multipart/form-data' };
                 axios.post('http://localhost:42069/register', formData, { headers }).then((res) => {
-                  console.log(res.data.files); 
-                  console.log(res.status); 
+                console.log(res);
+                if (res.data.error == "file is required") {
+                    alert("Please upload a file")
+                }else if (res.data.error == "Email already exists") {
+                    alert("Email already exists")
+                    }else if (res.data.error == "CIN already exists") {
+                    alert("CIN already exists")
+                }else if (res.data.success == "user created") {
+                     localStorage.setItem('userToken',res.data.token)
+                      router.push("/home")
+                }
+                }).then((err) => {
+                    console.log(err)
                 });
             }
             else {
