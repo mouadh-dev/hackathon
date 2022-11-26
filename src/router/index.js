@@ -19,11 +19,7 @@ const router = createRouter({
       name: 'register',
       component: () => import('../views/register.vue')
     },
-    {
-      path: '/petitiondashboard',
-      name: 'petitiondashboard',
-      component: () => import('../views/petitiondashboard.vue')
-    },
+    
     {
       path: '/admin',
       name: 'dashboard',

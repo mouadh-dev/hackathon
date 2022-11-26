@@ -87,6 +87,8 @@
               <div class="py-4">
                 <div class="border-4 border-dashed border-gray-200 rounded-lg h-96" />
               </div>
+              <petitiondashboard style="display: none;"/>
+              <petitionDashboard/>
               <!-- /End replace -->
             </div>
           </div>
@@ -137,6 +139,7 @@
     XIcon,
   } from '@heroicons/vue/outline'
   import { SearchIcon } from '@heroicons/vue/solid'
+
   
   const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon, current: true },
@@ -152,19 +155,20 @@
   
   export default {
     components: {
-      Dialog,
-      DialogOverlay,
-      Menu,
-      MenuButton,
-      MenuItem,
-      MenuItems,
-      TransitionChild,
-      TransitionRoot,
-      BellIcon,
-      MenuAlt2Icon,
-      SearchIcon,
-      XIcon,
-    },
+    Dialog,
+    DialogOverlay,
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+    TransitionChild,
+    TransitionRoot,
+    BellIcon,
+    MenuAlt2Icon,
+    SearchIcon,
+    XIcon,
+    Petitiondashboard
+},
     setup() {
       const sidebarOpen = ref(false)
   
@@ -175,8 +179,10 @@
       }
     },
     // methods :{
-    //     getPage(e) =>{
-    //         if 
+    //     getPage(e){
+    //         if (e == Petition) {
+    //             this.navigation.href
+    //         }
     //     }
     // }
   }
