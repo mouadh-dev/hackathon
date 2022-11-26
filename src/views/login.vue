@@ -4,7 +4,6 @@
       <img class="mx-auto h-12 w-auto" src="../assets/logo.svg" alt="Workflow" />
       <h2 class="mt-6 text-center text-3xl font-extrabold text-black">Sign in to your account</h2>
       <p class="mt-2 text-center text-sm text-gray-600">
-       
       </p>
     </div>
 
@@ -102,7 +101,7 @@ export default {
   },
     mounted () {
     axios
-      .get('http://192.168.11.218:42069')
+      .get('http://192.168.11.218:42069/login')
       .then(response => (this.info = response.data))
       .catch(error => console.log(error))
   }
