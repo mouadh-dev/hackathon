@@ -98,7 +98,6 @@
              <homeDashboard text="Change the city's public transport ticketing system for easier trips and digitalize the process " type="Petition"/>
              <homeDashboard text="Using new technologies to help Tunisia turn into a stable democracy." type="Debate"/>
              <homeDashboard text="What would you suggest to help fight corruption in Tunisia and enhance transparency ? " type="Petition"/>
-        
 
               <!-- /End replace -->
             </div>
@@ -130,6 +129,7 @@
   import { ref } from 'vue'
   import homeDashboard from '../components/homeDashboardComponent.vue'
   import petition from '../components/petitiondashboard.vue'
+  import petitionDetails from '../components/petitionDetails.vue'
 
   import {
     Dialog,
@@ -181,7 +181,8 @@
     SearchIcon,
     XIcon,
     homeDashboard,
-    petition
+    petition,
+    petitionDetails
     
 },
     setup() {
